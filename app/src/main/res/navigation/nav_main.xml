@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/scanerFragment">
+
+    <fragment
+        android:id="@+id/scanerFragment"
+        android:name="com.scannerapp.android.UI.Fragment.ScannerFragment"
+        android:label="fragment_scaner"
+        tools:layout="@layout/fragment_scaner" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.scannerapp.android.UI.Fragment.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+</navigation>

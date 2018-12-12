@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.scannerapp.android"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    supLib = '1.1.0-alpha01'
+    retrofitLib = '2.4.0'
+    navLib = '1.0.0-alpha08'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$supLib"
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "android.arch.navigation:navigation-fragment:$navLib"
+    implementation "android.arch.navigation:navigation-ui:$navLib"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitLib"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitLib"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1-alpha01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1-alpha01'
+}
