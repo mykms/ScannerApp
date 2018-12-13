@@ -7,6 +7,8 @@ import android.os.Bundle;
 import com.scannerapp.android.R;
 import com.scannerapp.android.UI.Callback.HostActivityListener;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MainActivity extends AppCompatActivity implements HostActivityListener {
     private NavController navController = null;
 
@@ -18,7 +20,12 @@ public class MainActivity extends AppCompatActivity implements HostActivityListe
     }
 
     @Override
-    public void onMessage() {
+    public void onMessage(@NotNull String message) {
+        //
+    }
+
+    @Override
+    public void onNavigateTo(int fragmentNavId) {
         //
     }
 }
