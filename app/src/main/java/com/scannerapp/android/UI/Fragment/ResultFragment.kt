@@ -25,7 +25,7 @@ class ResultFragment : BaseFragment(), SearchView {
 
     override fun initComponents(view: View) {
         if (!barCode.isNullOrEmpty()) {
-            val presenter = SearchPresenter(this, ApiMethods.getInstance(context!!))
+            val presenter = SearchPresenter(this, ApiMethods.getInstance())
             presenter.searchProduct(Product(barCode))
         }
     }

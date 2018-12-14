@@ -17,16 +17,16 @@ interface ApiMethods {
         private val BASE_URL: String = "https://catalog.napolke.ru/"
         const val IMAGE_URL: String = "https://img.napolke.ru/image/get?uuid="
 
-        fun getInstance(context: Context): ApiMethods {
+        fun getInstance(): ApiMethods {
             val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-                    .client(getOkHttpClient(context))
+                    .client(getOkHttpClient())
 
             return  retrofitBuilder.build().create(ApiMethods::class.java)
         }
 
-        private fun getOkHttpClient(context: Context): OkHttpClient {
+        private fun getOkHttpClient(): OkHttpClient {
             val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
             httpClient.interceptors().add(HttpLoggingInterceptor().apply {
                 level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
