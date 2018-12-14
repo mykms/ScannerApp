@@ -41,6 +41,10 @@ abstract class BaseFragment : Fragment() {
         activityListener?.onMessage(message)
     }
 
+    fun openFragment(fragmentNavId: Int, args: Bundle) {
+        activityListener?.onNavigateTo(fragmentNavId, args)
+    }
+
     override fun onDetach() {
         super.onDetach()
         activityListener = null

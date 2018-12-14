@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements HostActivityListe
     }
 
     @Override
-    public void onNavigateTo(int fragmentNavId) {
-        //
+    public void onNavigateTo(int fragmentNavId, Bundle args) {
+        navController.navigate(fragmentNavId, args);
     }
 }

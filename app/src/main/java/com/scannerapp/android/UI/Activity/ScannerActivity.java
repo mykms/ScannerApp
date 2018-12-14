@@ -2,6 +2,7 @@ package com.scannerapp.android.UI.Activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.android.material.snackbar.Snackbar;
+import com.scannerapp.android.Constants;
 import com.scannerapp.android.R;
 import com.scannerapp.scannermodule.BarcodeGraphic;
 import com.scannerapp.scannermodule.BarcodeTrackerFactory;
@@ -143,8 +145,11 @@ public class ScannerActivity extends AppCompatActivity implements BarcodeTracker
 
     @Override
     public void getBarcodeResultFactory(Barcode _barcode) {
-        if (!isScaned)
-            //extractBarCode(_barcode.displayValue);
-            return;
+        if (!isScaned) {
+            Intent resIntent = new Intent();
+            resIntent.putExtra(Constants.EXTRA_CODE, _barcode.displayValue);
+            setResult(Activity.RESULT_OK, resIntent);
+            finish();
+        }
     }
 }
