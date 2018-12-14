@@ -1,7 +1,8 @@
-package com.scannerapp.android
+package com.scannerapp.android.Network
 
 import android.content.Context
 import com.google.gson.GsonBuilder
+import com.scannerapp.android.BuildConfig
 import com.scannerapp.android.Model.Product
 import com.scannerapp.android.Model.ProductResult
 import okhttp3.OkHttpClient
@@ -13,7 +14,7 @@ import retrofit2.http.*
 
 interface ApiMethods {
     companion object {
-        private val BASE_URL: String = "https://catalog.napolke.ru/search/catalog/"
+        private val BASE_URL: String = "https://catalog.napolke.ru/"
         const val IMAGE_URL: String = "https://img.napolke.ru/image/get?uuid="
 
         fun getInstance(context: Context): ApiMethods {
@@ -35,9 +36,6 @@ interface ApiMethods {
         }
     }
 
-    @GET("orders/{type}")
-    fun getOrders(@Path("type") type: String?): Call<List<Product>>
-
-    @POST("user/sessions")
+    @POST("search/catalog")
     fun searchProduct(@Body product: Product): Call<ProductResult>
 }

@@ -1,4 +1,4 @@
-package com.scannerapp.android
+package com.scannerapp.android.Network
 
 import retrofit2.Call
 import retrofit2.Callback

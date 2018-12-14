@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import android.os.Bundle;
+import com.google.android.material.snackbar.Snackbar;
 import com.scannerapp.android.R;
 import com.scannerapp.android.UI.Callback.HostActivityListener;
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements HostActivityListe
 
     @Override
     public void onMessage(@NotNull String message) {
-        //
+        Snackbar.make(getWindow().getDecorView(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

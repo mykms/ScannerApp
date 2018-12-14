@@ -1,6 +1,7 @@
 package com.scannerapp.android.Model
 
 class ProductResult {
-    val result: Int = 0
+    var result: Int = -1
     val data: List<ProductDetail> = ArrayList()
+    val error_message: String = ""
 }
